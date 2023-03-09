@@ -1,6 +1,11 @@
 const express = require("express")
 const app = express()
 const port = 3000
+const fruitsRouter = require('./routes/Fruits.js')
+const userRouter = require('./routes/User')
+//import router
+
+app.use(express.json())
 
 // List of Users
 let users = [
@@ -44,7 +49,8 @@ let fruits = [
 
 // Express Routes
 
-
+app.use('/fruits', fruitsRouter)
+app.use('/users', userRouter)
 
 
 app.listen(port, () => {
